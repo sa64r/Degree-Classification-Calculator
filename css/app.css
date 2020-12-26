@@ -92,5 +92,5 @@ button.addModules:hover{
 article{
     flex-grow: 1;
     padding: 1rem 2rem;
-    min-width: 700px;
+    min-width: 40%;
 }
