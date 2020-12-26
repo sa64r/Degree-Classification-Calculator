@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/app.css">
+    <title>Degree Classificiation Calculator</title>
+</head>
+
+<body>
+    <header>
+        <h1>UK Degree Classification Calculator</h1>
+    </header>
+    <div id="container">
+        <main>
+            <h2>Enter your percentage marks and credit weightings</h2>
+            <section id="year1">
+                <h2>Year 1</h2>
+                <form class="gradesForm" id="gradesForYear1">
+                    <div class="listOfGrades">
+                        <template id="moduleInputTemplate">
+                            <div class="moduleMarkAndCredits">
+                                <label>Grade Achieved in Module as % (e.g 70):</label>
+                                <input type="number" class="mark" name="" id="" step="any">
+                                <label>Credits of Module (e.g 15):</label>
+                                <input type="number" class="credits" name="" id="" step="any">
+                                <button class="deleteModuleInput" onclick="return false">Delete</button>
+                            </div>
+                        </template>
+                        <div class="moduleMarkAndCredits">
+                            <label>Grade Achieved in Module as % (e.g 70):</label>
+                            <input type="number" class="mark" name="" id="" step="any">
+                            <label>Credits of Module (e.g 15):</label>
+                            <input type="number" class="credits" name="" id="" step="any">
+                            <button class="deleteModuleInput" onclick="return false">Delete</button>
+                        </div>
+                    </div>
+                    <button onclick="return false" class="addModules">Add Module</button>
+                    <div class="yearWeigtingInput">
+                        <label>Weighting of year e.g 0:</label>
+                        <input type="number" name="" id="" step="any">
+                    </div>
+                </form>
+            </section>
+            <section id="year2">
+                <h2>Year 2</h2>
+                <form class="gradesForm" id="gradesForYear2">
+                    <div class="listOfGrades">
+                        <div class="moduleMarkAndCredits">
+                            <label>Grade Achieved in Module as % (e.g 70):</label>
+                            <input type="number" class="mark" name="" id="" step="any">
+                            <label>Credits of Module (e.g 15):</label>
+                            <input type="number" class="credits" name="" id="" step="any">
+                            <button class="deleteModuleInput" onclick="return false">Delete</button>
+                        </div>
+                    </div>
+                    <button onclick="return false" class="addModules">Add Module</button>
+                    <div class="yearWeigtingInput">
+                        <label>Weighting of year e.g 1:</label>
+                        <input type="number" name="" id="" step="any">
+                    </div>
+                </form>
+            </section>
+            <section id="year3">
+                <h2>Year 3</h2>
+                <form class="gradesForm" id="gradesForYear3">
+                    <div class="listOfGrades">
+                        <div class="moduleMarkAndCredits">
+                            <label>Grade Achieved in Module as % (e.g 70):</label>
+                            <input type="number" class="mark" name="" id="" step="any">
+                            <label>Credits of Module (e.g 15):</label>
+                            <input type="number" class="credits" name="" id="" step="any">
+                            <button class="deleteModuleInput" onclick="return false">Delete</button>
+                        </div>
+                    </div>
+                    <button onclick="return false" class="addModules">Add Module</button>
+                    <div class="yearWeigtingInput">
+                        <label>Weighting of year e.g 2:</label>
+                        <input type="number" name="" id="" step="any">
+                    </div>
+                </form>
+            </section>
+            <section id="year4">
+                <h2>Year 4</h2>
+                <form class="gradesForm" id="gradesForYear4">
+                    <div class="listOfGrades">
+                        <div class="moduleMarkAndCredits">
+                            <label>Grade Achieved in Module as % (e.g 70):</label>
+                            <input type="number" class="mark" name="" id="" step="any">
+                            <label>Credits of Module (e.g 15):</label>
+                            <input type="number" class="credits" name="" id="" step="any">
+                            <button class="deleteModuleInput" onclick="return false">Delete</button>
+                        </div>
+                    </div>
+                    <button onclick="return false" class="addModules">Add Module</button>
+                    <div class="yearWeigtingInput">
+                        <label>Weighting of year e.g 2:</label>
+                        <input type="number" name="" id="" step="any">
+                    </div>
+                </form>
+            </section>
+            <section>
+
+                <button onclick="return false" id="calculateButton">Calculate</button>
+            </section>
+        </main>
+        <article>
+            <div id="results">
+                <h2>Results</h2>
+                <div id="resultsOutput">
+
+                </div>
+            </div>
+        </article>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

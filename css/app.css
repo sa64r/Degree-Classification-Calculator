@@ -1,0 +1,89 @@
+body{
+    font-family: sans-serif;
+}
+h1{
+    font-size: 2.2rem;
+    font-weight: bolder;
+}
+h2{
+    font-size: 1.5rem;
+}
+header{
+    padding: 2rem;
+    background: #e9ecef;
+}
+#container{
+    display: flex;
+}
+main{
+    flex-grow: 1;
+    max-width: 55%;
+    padding: 1rem 2rem;
+}
+section{
+    padding: 1rem 0rem ;
+}
+.moduleMarkAndCredits{
+    margin: 0.7rem 0;
+    background-color: #e9ecef;
+    padding: 0.7rem;
+    border-radius: 1em;
+}
+button.deleteModuleInput{
+    background-color: red;
+    color:#fff;
+    font-weight: bolder;
+    border: none;
+    padding: 0.3rem 1rem;
+    margin-left: 20px;
+    border-radius: 1em;
+    text-transform: uppercase;
+    border: 2px solid transparent;
+}
+button.deleteModuleInput:hover{
+    border: 2px solid red;
+    background: transparent;
+    color: red;
+}
+
+button.addModules{
+    background: #212529;
+    color: #fff;
+    border: none;
+    padding: 0.3rem 1rem;
+    border-radius: 1em;
+    border: 2px solid transparent;
+    text-transform: uppercase;
+}
+button.addModules:hover{
+    border: 2px solid #212529;
+    background: transparent;
+    color: #000;
+}
+.yearWeigtingInput{
+    margin: 0.7rem 0;
+    background-color: #e9ecef;
+    padding: 0.7rem;
+    border-radius: 1em;
+}
+
+#calculateButton{
+    border: none;
+    background:#38ba5b ;
+    color:#fff;
+    padding: 0.5rem 1rem;
+    border-radius: 1em;
+    text-transform: uppercase;
+    border: 2px solid transparent;
+    /* margin-top: 20px; */
+}
+#calculateButton:hover{
+    color: #38ba5b;
+    background: transparent;
+    border: 2px solid #38ba5b;
+}
+
+article{
+    flex-grow: 1;
+    padding: 1rem 2rem;
+}
