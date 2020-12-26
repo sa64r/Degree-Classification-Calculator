@@ -6,6 +6,8 @@ let totalMedian = 0;
 let totalRangeComparer = 0;
 let primaryDegreeClassification;
 let secondaryDegreeClassificationCalc1;
+let secondaryDegreeClassificationCalc2;
+let totalSecondaryDegreeClassification;
 
 
 // ============== Creation and Deletion of Module Inputs ================
@@ -82,7 +84,9 @@ document.querySelector("#calculateButton").addEventListener('click', function ()
 
 
     calculatePrimaryDegreeClassification()
-    calculateSecondaryDegreeClassification()
+    secondaryDegreeClassificationCalc1 = calculateSecondaryDegreeClassification(totalMedian)
+    secondaryDegreeClassificationCalc2 = calculateSecondaryDegreeClassification(totalRangeComparer)
+    calculateFullSecondaryDegreeClassification()
     showResults()
 
 });
@@ -93,45 +97,63 @@ function calculatePrimaryDegreeClassification() {
     if (totalWeightedAverage >= 69.5) {
         primaryDegreeClassification = "First"
     } else if (totalWeightedAverage >= 68) {
-        primaryDegreeClassification = "	First/2.1 borderline range"
+        primaryDegreeClassification = "Borderline First"
     } else if (totalWeightedAverage >= 59.9) {
         primaryDegreeClassification = "2.1"
     } else if (totalWeightedAverage >= 58) {
-        primaryDegreeClassification = "2.1/2.2 borderline range"
+        primaryDegreeClassification = "Borderline 2.1"
     } else if (totalWeightedAverage >= 49.5) {
         primaryDegreeClassification = "2.2"
     } else if (totalWeightedAverage >= 48) {
-        primaryDegreeClassification = "2.2/Third borderline range"
+        primaryDegreeClassification = "Borderline 2.2"
     } else if (totalWeightedAverage >= 44.5) {
         primaryDegreeClassification = "Third"
     } else if (totalWeightedAverage >= 43.5) {
-        primaryDegreeClassification = "Third/Pass borderline range"
+        primaryDegreeClassification = "Borderline Third"
     } else if (totalWeightedAverage >= 39.5) {
         primaryDegreeClassification = "Pass"
     } else if (totalWeightedAverage >= 38.50) {
-        primaryDegreeClassification = "Pass/Fail borderline range"
+        primaryDegreeClassification = "Borderline Pass"
     } else {
         primaryDegreeClassification = "Fail"
     }
 }
 
-function calculateSecondaryDegreeClassification() {
-    if (totalMedian >= 69.5) {
-        secondaryDegreeClassificationCalc1 = "First"
-    } else if (totalMedian >= 59.9) {
-        secondaryDegreeClassificationCalc1 = "2.1"
-    } else if (totalMedian >= 49.5) {
-        secondaryDegreeClassificationCalc1 = "2.2"
-    } else if (totalMedian >= 44.5) {
-        secondaryDegreeClassificationCalc1 = "Third"
-    } else if (totalMedian >= 39.5) {
-        secondaryDegreeClassificationCalc1 = "Pass"
+function calculateSecondaryDegreeClassification(numberToCheck) {
+    let classification = ""
+    if (numberToCheck >= 69.5) {
+        classification = "First"
+    } else if (numberToCheck >= 59.9) {
+        classification = "2.1"
+    } else if (numberToCheck >= 49.5) {
+        classification = "2.2"
+    } else if (numberToCheck >= 44.5) {
+        classification = "Third"
+    } else if (numberToCheck >= 39.5) {
+        classification = "Pass"
     } else {
-        secondaryDegreeClassificationCalc1 = "Fail"
+        classification = "Fail"
     }
+    return classification;
 }
 
-
+function calculateFullSecondaryDegreeClassification() {
+    if (secondaryDegreeClassificationCalc1 !== secondaryDegreeClassificationCalc2) {
+        if (secondaryDegreeClassificationCalc1 === "First" || secondaryDegreeClassificationCalc2 === "First") {
+            totalSecondaryDegreeClassification = "Borderline First"
+        } else if (secondaryDegreeClassificationCalc1 === "2.1" || secondaryDegreeClassificationCalc2 === "2.1") {
+            totalSecondaryDegreeClassification = "Borderline 2.1"
+        } else if (secondaryDegreeClassificationCalc1 === "2.2" || secondaryDegreeClassificationCalc2 === "2.2") {
+            totalSecondaryDegreeClassification = "Borderline 2.2"
+        } else if (secondaryDegreeClassificationCalc1 === "Third" || secondaryDegreeClassificationCalc2 === "Third") {
+            totalSecondaryDegreeClassification = "Borderline Third"
+        } else if (secondaryDegreeClassificationCalc1 === "Pass" || secondaryDegreeClassificationCalc2 === "Pass") {
+            totalSecondaryDegreeClassification = "Borderline Pass"
+        }
+    } else {
+        totalSecondaryDegreeClassification = secondaryDegreeClassificationCalc1;
+    }
+}
 
 
 // comppiles message to be shown
@@ -140,11 +162,11 @@ function showResults() {
     Year 2 Weighted Average Mean: ${yearlyWeightedAverages[1]}<br>
     Year 3 Weighted Average Mean: ${yearlyWeightedAverages[2]}<br>
     Year 4 Weighted Average Mean: ${yearlyWeightedAverages[3]}<br>
-    TOTAL AVERAGE: ${totalWeightedAverage}<br>
-    TOTAL MEDIAN: ${totalMedian}<br>
-    TOTAL 5/12 FROM HIGHEST GRADE: ${totalRangeComparer}<br>
+    TOTAL WEIGHTED AVERAGE MEAN: ${totalWeightedAverage}<br>
+    TOTAL WEIGHTED MEDIAN: ${totalMedian}<br>
+    TOTAL WEIGHTED 5/12 FROM HIGHEST GRADE: ${totalRangeComparer}<br><br>
     PRIMARY DEGREE CLASSIFICATION: ${primaryDegreeClassification}<br>
-    SECONDARY DEGREE CLASSIFICATION: ${secondaryDegreeClassificationCalc1}`;
+    SECONDARY DEGREE CLASSIFICATION: ${totalSecondaryDegreeClassification}`;
 
     document.querySelector("#resultsOutput").innerHTML = message;
 };
