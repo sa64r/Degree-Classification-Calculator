@@ -1,3 +1,6 @@
+html {
+    scroll-behavior: smooth; /*Ensures scrolling to section on a tag click*/
+}
 body{
     font-family: sans-serif;
 }
