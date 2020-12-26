@@ -200,4 +200,5 @@ function showResults() {
     FINAL DEGREE CLASSIFICATION: ${finalDegreeClassification}`;
 
     document.querySelector("#resultsOutput").innerHTML = message;
+    document.getElementById("resultsOutput").scrollIntoView();
 };
