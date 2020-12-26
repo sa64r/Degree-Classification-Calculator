@@ -8,6 +8,7 @@ let primaryDegreeClassification;
 let secondaryDegreeClassificationCalc1;
 let secondaryDegreeClassificationCalc2;
 let totalSecondaryDegreeClassification;
+let finalDegreeClassification;
 
 
 // ============== Creation and Deletion of Module Inputs ================
@@ -87,6 +88,7 @@ document.querySelector("#calculateButton").addEventListener('click', function ()
     secondaryDegreeClassificationCalc1 = calculateSecondaryDegreeClassification(totalMedian)
     secondaryDegreeClassificationCalc2 = calculateSecondaryDegreeClassification(totalRangeComparer)
     calculateFullSecondaryDegreeClassification()
+    calculateFinalDegreeClassification()
     showResults()
 
 });
@@ -156,6 +158,29 @@ function calculateFullSecondaryDegreeClassification() {
 }
 
 
+function calculateFinalDegreeClassification() {
+    if (primaryDegreeClassification !== totalSecondaryDegreeClassification) {
+        if (primaryDegreeClassification.includes("Borderline")) {
+            finalDegreeClassification = totalSecondaryDegreeClassification;
+        } else if (totalSecondaryDegreeClassification.includes("Borderline")) {
+            finalDegreeClassification = primaryDegreeClassification;
+        } else if (primaryDegreeClassification === "First" || totalSecondaryDegreeClassification === "First") {
+            finalDegreeClassification = "Borderline First"
+        } else if (primaryDegreeClassification === "2.1" || totalSecondaryDegreeClassification === "2.1") {
+            finalDegreeClassification = "Borderline 2.1"
+        } else if (primaryDegreeClassification === "2.2" || totalSecondaryDegreeClassification === "2.2") {
+            finalDegreeClassification = "Borderline 2.2"
+        } else if (primaryDegreeClassification === "Third" || totalSecondaryDegreeClassification === "Third") {
+            finalDegreeClassification = "Borderline Third"
+        } else if (primaryDegreeClassification === "Pass" || totalSecondaryDegreeClassification === "Pass") {
+            finalDegreeClassification = "Borderline Pass"
+        }
+    } else {
+        finalDegreeClassification = primaryDegreeClassification;
+    }
+}
+
+
 // comppiles message to be shown
 function showResults() {
     let message = `Year 1 Weighted Average Mean: ${yearlyWeightedAverages[0]}<br>
@@ -164,9 +189,10 @@ function showResults() {
     Year 4 Weighted Average Mean: ${yearlyWeightedAverages[3]}<br>
     TOTAL WEIGHTED AVERAGE MEAN: ${totalWeightedAverage}<br>
     TOTAL WEIGHTED MEDIAN: ${totalMedian}<br>
-    TOTAL WEIGHTED 5/12 FROM HIGHEST GRADE: ${totalRangeComparer}<br><br>
+    TOTAL WEIGHTED 5/12 HIGHEST GRADE: ${totalRangeComparer}<br><br>
     PRIMARY DEGREE CLASSIFICATION: ${primaryDegreeClassification}<br>
-    SECONDARY DEGREE CLASSIFICATION: ${totalSecondaryDegreeClassification}`;
+    SECONDARY DEGREE CLASSIFICATION: ${totalSecondaryDegreeClassification}<br><br>
+    FINAL DEGREE CLASSIFICATION: ${finalDegreeClassification}`;
 
     document.querySelector("#resultsOutput").innerHTML = message;
 };
