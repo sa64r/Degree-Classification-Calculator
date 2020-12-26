@@ -121,6 +121,8 @@ function calculatePrimaryDegreeClassification() {
     }
 }
 
+
+// gives a qualitative classification for the secondary classification calculations
 function calculateSecondaryDegreeClassification(numberToCheck) {
     let classification = ""
     if (numberToCheck >= 69.5) {
@@ -139,6 +141,7 @@ function calculateSecondaryDegreeClassification(numberToCheck) {
     return classification;
 }
 
+// deduces what the full secondary degree class is based on comparing the two calculations that make up the whole 2nd degree classification
 function calculateFullSecondaryDegreeClassification() {
     if (secondaryDegreeClassificationCalc1 !== secondaryDegreeClassificationCalc2) {
         if (secondaryDegreeClassificationCalc1 === "First" || secondaryDegreeClassificationCalc2 === "First") {
@@ -158,6 +161,8 @@ function calculateFullSecondaryDegreeClassification() {
 }
 
 
+
+// conbines the secondary and primary degree classifications to deduce a final classification 
 function calculateFinalDegreeClassification() {
     if (primaryDegreeClassification !== totalSecondaryDegreeClassification) {
         if (primaryDegreeClassification.includes("Borderline")) {
@@ -181,7 +186,7 @@ function calculateFinalDegreeClassification() {
 }
 
 
-// comppiles message to be shown
+// compiles message to be shown
 function showResults() {
     let message = `Year 1 Weighted Average Mean: ${yearlyWeightedAverages[0]}<br>
     Year 2 Weighted Average Mean: ${yearlyWeightedAverages[1]}<br>
